@@ -1,0 +1,88 @@
+<h2>{{"Eeranna started with Angular"}}</h2>
+  <hr/>
+  <h2>{{2+2}}</h2>
+  <hr/>
+  <h2>{{2==2}}</h2>
+  <hr/>
+  <h2>{{2=="2"}}</h2><!--true-->
+  <hr/>
+  <h2>{{2==="2"}}</h2><!--false-->
+  <hr/>
+  <h2>{{id+" "+name}}</h2>
+  <hr/>
+  <h2>{{colors[0]+" "+colors[1]+" "+colors[2]+" "+colors[3]}}</h2>
+  <hr/>
+  <h2>{{emp['id']+" "+emp['name']+" "+emp['email']}}</h2>
+  <br>
+  <hr/>
+  <ul>
+    <li *ngFor="let c of colors" [ngStyle]="{'color':c}">
+      {{c}}
+    </li>
+  </ul>
+  <hr/>
+  <p *ngIf="isValid">
+    Data is valid.
+  </p>
+  <p *ngIf="!isValid">
+    Data is not valid.
+  </p>
+  <hr/>
+  <div *ngIf="isValid; else elseBlock">
+    <b>Data is valid.</b>
+  </div>
+  <ng-template #elseBlock>
+    <div>
+      <b>Data is invalid.</b>
+    </div>
+  </ng-template>
+  <hr/>
+  <div *ngIf="isValid; then thenBlock; else thenelseBlock"></div>
+    <ng-template #thenBlock>
+      <div><b>Data is valid thenBlock.</b></div>
+    </ng-template>
+    <ng-template #thenelseBlock>
+      <div><b>Data is invalid.</b></div>
+    </ng-template>
+    <hr/>
+    <div *ngFor="let person of PERSONS; index as i;
+    even as isEven; odd as isOdd; first as isFirst; last as isLast;">
+    <font color="blue" *ngIf="isEven">{{i + 1}}:
+      {{person.personId}} - {{person.name}} - {{person.age}}
+    </font>
+    <font color="red" *ngIf="isOdd">{{i + 1}}:
+      {{person.personId}} - {{person.name}} - {{person.age}}
+    </font>
+    <font color="red" *ngIf="isFirst">{{i + 1}}:
+     {{'This is first value'}}
+    </font>
+    <font color="red" *ngIf="isLast">{{i + 1}}:
+      {{'This is Last value'}}
+    </font>
+  </div>
+  <hr/>
+  <h3>--------ngSwitch Example------------</h3>
+  <ul [ngSwitch]="color">
+    <li *ngSwitchCase="'ORANGE'">Current color status is ORANGE</li>
+    <li *ngSwitchCase="'MAGENTA'">Current color status is MAGENTA</li>
+    <li *ngSwitchCase="'GREEN'">Current color status is GREEN</li>
+    <li *ngSwitchCase="'RED'">Current color status is RED</li>
+    <li *ngSwitchDefault>Bye Bye</li>
+  </ul>
+  <hr/>
+  <h3>--------------Dynamic class----------</h3>
+  <div *ngFor="let id of ids">
+    Id is {{id}}
+    <div ngSwitch="{{id%2}}">
+      <div *ngSwitchCase="0" [ngClass]="'one'">I am Even.</div>
+      <div *ngSwitchCase="1" [ngClass]="'two'">I am Odd.</div>
+      <div *ngSwitchDefault>Nothing Found.</div>
+    </div>
+  </div>
+  <hr/>
+  <h3>------------style-----------</h3>
+  <p [style.color]="result > 30 ? 'blue':'green'">Hello Color World!</p>
+  <p bind-style.color="result > 30 ? 'blue':'green'">Hello Color World!</p>
+  <p style.color="result > 30 ? 'blue':'green'">Hello Color World!</p>
+  <div [ngStyle]="{'background-color':PERSONS.name == 'Bharath'?'orange':'red'}">
+    Hello Color World!</div>

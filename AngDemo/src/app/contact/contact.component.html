@@ -1,0 +1,26 @@
+<form #userFormDemo="ngForm" (ngSubmit)="onFormSubmitDemo(userFormDemo)">
+  <input name="message" type="text" [(ngModel)]="msg">&nbsp;&nbsp;
+  <button>Submit</button>
+</form>
+<h3>Using NgForm with NgModel</h3>
+<div>
+  <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+    <div>Name:<input name="name" ngModel required #userName="ngModel"> </div><br/>
+    <div>City:<input name="city" ngModel required #userCity="ngModel"> </div><br/>
+    <div>State:<input name="state" ngModel> </div><br/>
+    <div>
+      <button>Submit</button>&nbsp;&nbsp;
+      <button type="button" (click)="resetUserForm(userForm)">Reset</button>
+    </div>
+  </form>
+</div>
+<div>
+  <p>Form Value: <b>{{ userForm.value | json }}</b></p>
+  <p>Form Valid: <b>{{ userForm.valid }}</b></p>
+  <p>Form Touched: <b>{{ userForm.touched }}</b></p>
+  <p>Form Submitted: <b>{{ userForm.submitted }}</b></p>
+</div>
+<div>
+  <p>Name value: <b>{{ userName.value }}</b></p>
+  <p>Name valid: <b>{{ userName.valid }}</b></p>
+</div>

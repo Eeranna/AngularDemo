@@ -1,0 +1,30 @@
+<p>
+  pipedemo works!
+</p>
+<h3>Uppercase Pipe</h3>
+<b>{{title | lowercase}}</b>
+<h3>Currency Pipe</h3>
+  <b>{{6589.23 | currency:"USD"</b><br/>
+  <b>{{6589.23 | currency:"USD":false</b>
+  <!--Boolean false is used not to get the sign of the currency-->
+  <h3>Decimal Pipe</h3>
+  <b>{{454.78787814 | number: '3.4'</b>
+  <h3>Percent Pipe</h3>
+  <b>{{00.54565 | percent}}</b>
+  <h3>Slice Pipe</h3>
+  <b>{{months | slice:2:6}}</b>
+  <h3>Date pipe</h3>
+  <b>{{todaydate | date:'d/M/y'}}</b><br/>
+  <b>{{todaydate | date:'dd-MM-yyyy'}}</b><br/>
+  <b>{{todaydate | date:'shortTime'}}</b><br/>
+  <b>{{todaydate | date:'shortDate'}}</b><br/>
+  <b>{{todaydate | date:'mediumDate'}}</b><br/>
+  <b>{{todaydate | date:'longDate'}}</b><br/>
+  <b>{{todaydate | date:'fullDate'}}</b><br/>
+
+  <h3>Json Pipe</h3>
+  <b>{{person | json }}</b>
+  <div *ngFor="let person of PERSONS;">
+    <font color="blue"> {{person.personId}} - {{person.name}} - {{person.age}} - {{person.stat | status}}
+    </font>
+  </div>
